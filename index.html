@@ -1,280 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Venkateshwaran | Portfolio</title>
-  <meta name="description" content="Welcome to Venkateshwaran's personal portfolio. Explore my skills, projects and work.">
-  <meta name="author" content="Venkateshwaran">
+<title>Venkateshwaran | Personal Portfolio</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<meta name="description" content="Venkateshwaran's professional personal portfolio. Explore skills, projects and contact information.">
+<meta name="author" content="Venkateshwaran">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#080b12;
+    color:#f5f7fb;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(8,11,18,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.nav-inner{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#3b82f6;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    color:#aeb7c7;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#2563eb;
+    filter:blur(160px);
+    opacity:.13;
+    right:-180px;
+    top:100px;
+}
+
+.hero-content{
+    position:relative;
+    max-width:780px;
+    padding-top:70px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(59,130,246,.3);
+    border-radius:30px;
+    color:#60a5fa;
+    background:rgba(37,99,235,.08);
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,88px);
+    line-height:1.02;
+    letter-spacing:-4px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#3b82f6;
+}
+
+.hero p{
+    max-width:650px;
+    color:#9ca8ba;
+    font-size:19px;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 23px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#2563eb;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    border:1px solid #303846;
+    color:#e5e7eb;
+}
+
+.btn-secondary:hover{
+    border-color:#3b82f6;
+    color:#60a5fa;
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    margin-bottom:45px;
+}
+
+.section-title small{
+    color:#3b82f6;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:42px;
+    letter-spacing:-1.5px;
+    margin-top:8px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+.about-card{
+    background:#0e131d;
+    border:1px solid #1e2633;
+    border-radius:16px;
+    padding:32px;
+}
+
+.about-card p{
+    color:#9ca8ba;
+}
+
+.info-list{
+    display:grid;
+    gap:14px;
+}
+
+.info-item{
+    display:flex;
+    justify-content:space-between;
+    padding-bottom:14px;
+    border-bottom:1px solid #202735;
+}
+
+.info-item span:first-child{
+    color:#7f8a9d;
+}
+
+.info-item span:last-child{
+    color:#f1f5f9;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.skill{
+    background:#0e131d;
+    border:1px solid #1e2633;
+    border-radius:14px;
+    padding:25px;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+}
+
+.skill-number{
+    color:#3b82f6;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.skill h3{
+    margin:10px 0 5px;
+}
+
+.skill p{
+    color:#8995a8;
+    font-size:14px;
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.project{
+    background:linear-gradient(145deg,#101621,#0b0f17);
+    border:1px solid #202938;
+    border-radius:16px;
+    padding:28px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-6px);
+    border-color:#2563eb;
+}
+
+.project-tag{
+    color:#60a5fa;
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.project h3{
+    margin:12px 0;
+    font-size:21px;
+}
+
+.project p{
+    color:#8995a8;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.project-link{
+    color:#60a5fa;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* CONTACT */
+
+.contact-box{
+    text-align:center;
+    background:linear-gradient(135deg,#0d1420,#101827);
+    border:1px solid #1f2b3d;
+    border-radius:20px;
+    padding:70px 25px;
+}
+
+.contact-box h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.contact-box p{
+    color:#929daf;
+    margin-bottom:28px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #1b2330;
+    padding:30px 0;
+    text-align:center;
+    color:#697588;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        gap:12px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .nav-links a{
+        font-size:12px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #0f172a;
-      color: #f8fafc;
+    .hero h1{
+        letter-spacing:-2px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .hero p{
+        font-size:17px;
     }
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px 20px;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+    .about-grid,
+    .skills,
+    .projects{
+        grid-template-columns:1fr;
     }
 
-    .hero {
-      max-width: 800px;
+    section{
+        padding:75px 0;
     }
 
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      margin-bottom: 15px;
+    .section-title h2,
+    .contact-box h2{
+        font-size:34px;
+    }
+}
+
+@media(max-width:500px){
+
+    .nav-inner{
+        height:64px;
     }
 
-    .hero h1 span {
-      color: #38bdf8;
+    .logo{
+        font-size:19px;
     }
 
-    .hero p {
-      font-size: 20px;
-      color: #cbd5e1;
-      margin-bottom: 30px;
+    .nav-links{
+        gap:8px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 25px;
-      margin: 6px;
-      border-radius: 8px;
-      background: #38bdf8;
-      color: #082f49;
-      font-weight: bold;
+    .nav-links a{
+        font-size:10px;
     }
 
-    .btn:hover {
-      opacity: 0.85;
+    .hero{
+        min-height:90vh;
     }
 
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
+    .hero h1{
+        font-size:48px;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(15, 23, 42, 0.95);
-      border-bottom: 1px solid #334155;
-      padding: 15px 20px;
-      text-align: center;
+    .buttons{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    nav a {
-      margin: 0 12px;
-      color: #cbd5e1;
-      font-weight: bold;
+    .btn{
+        width:auto;
     }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 20px;
-    }
-
-    section h2 {
-      font-size: 34px;
-      margin-bottom: 25px;
-      color: #38bdf8;
-    }
-
-    .about {
-      color: #cbd5e1;
-      font-size: 18px;
-      max-width: 800px;
-    }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .skill {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      border: 1px solid #334155;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project {
-      background: #1e293b;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #334155;
-    }
-
-    .project h3 {
-      margin-bottom: 10px;
-      color: #f8fafc;
-    }
-
-    .project p {
-      color: #cbd5e1;
-      margin-bottom: 15px;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact p {
-      color: #cbd5e1;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      border-top: 1px solid #334155;
-      color: #94a3b8;
-    }
-
-    @media (max-width: 600px) {
-      nav a {
-        display: inline-block;
-        margin: 5px 7px;
-        font-size: 14px;
-      }
-
-      section {
-        padding: 60px 20px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header id="home">
-    <div class="hero">
-      <h1>Hi, I'm <span>Venkateshwaran</span></h1>
-      <p>Welcome to my personal portfolio</p>
+<!-- NAVIGATION -->
 
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn btn-outline">Contact Me</a>
-    </div>
-  </header>
+<nav class="navbar">
+<div class="container nav-inner">
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<a href="#home" class="logo">
+Venkatesh<span>.</span>
+</a>
 
-  <section id="about">
-    <h2>About Me</h2>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
 
-    <p class="about">
-      Hello! I'm Venkateshwaran. This is my personal portfolio website
-      where I share my skills, projects and work.
-    </p>
-  </section>
+</div>
+</nav>
 
-  <section id="skills">
-    <h2>My Skills</h2>
 
-    <div class="skills">
-      <div class="skill">Web Development</div>
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">Blogging</div>
-      <div class="skill">Digital Projects</div>
-    </div>
-  </section>
+<!-- HERO -->
 
-  <section id="projects">
-    <h2>My Projects</h2>
+<header class="hero" id="home">
+<div class="container">
 
-    <div class="projects">
+<div class="hero-content">
 
-      <div class="project">
-        <h3>Project One</h3>
-        <p>
-          Add your project description here.
-        </p>
-        <a href="#" class="btn">View Project</a>
-      </div>
+<div class="badge">
+Available for Opportunities
+</div>
 
-      <div class="project">
-        <h3>Project Two</h3>
-        <p>
-          Add your project description here.
-        </p>
-        <a href="#" class="btn">View Project</a>
-      </div>
+<h1>
+Hello, I'm<br>
+<span>Venkateshwaran.</span>
+</h1>
 
-      <div class="project">
-        <h3>Project Three</h3>
-        <p>
-          Add your project description here.
-        </p>
-        <a href="#" class="btn">View Project</a>
-      </div>
+<p>
+Welcome to my personal portfolio. I create digital projects,
+explore technology and build useful experiences on the web.
+</p>
 
-    </div>
-  </section>
+<div class="buttons">
+<a href="#projects" class="btn btn-primary">
+View My Work
+</a>
 
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
+<a href="#contact" class="btn btn-secondary">
+Get In Touch
+</a>
+</div>
 
-    <p>
-      Interested in working together? Feel free to contact me.
-    </p>
+</div>
+</div>
+</header>
 
-    <a href="mailto:your-email@example.com" class="btn">
-      Email Me
-    </a>
-  </section>
 
-  <footer>
-    <p>© 2026 Venkateshwaran. All Rights Reserved.</p>
-  </footer>
+<!-- ABOUT -->
+
+<section id="about">
+<div class="container">
+
+<div class="section-title">
+<small>01 — About</small>
+<h2>About Me</h2>
+</div>
+
+<div class="about-grid">
+
+<div class="about-card">
+<p>
+Hello! I'm Venkateshwaran. This website is my personal
+space to showcase my work, skills, projects and digital
+experiments.
+
+I'm interested in creating useful online projects and
+continuously learning new technologies.
+</p>
+</div>
+
+<div class="about-card">
+
+<div class="info-list">
+
+<div class="info-item">
+<span>Name</span>
+<span>Venkateshwaran</span>
+</div>
+
+<div class="info-item">
+<span>Focus</span>
+<span>Digital Projects</span>
+</div>
+
+<div class="info-item">
+<span>Website</span>
+<span>Personal Portfolio</span>
+</div>
+
+<div class="info-item">
+<span>Status</span>
+<span>Open to Opportunities</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+<div class="container">
+
+<div class="section-title">
+<small>02 — Skills</small>
+<h2>What I Do</h2>
+</div>
+
+<div class="skills">
+
+<div class="skill">
+<div class="skill-number">01</div>
+<h3>Web Development</h3>
+<p>Building responsive and modern websites.</p>
+</div>
+
+<div class="skill">
+<div class="skill-number">02</div>
+<h3>HTML & CSS</h3>
+<p>Creating clean and responsive interfaces.</p>
+</div>
+
+<div class="skill">
+<div class="skill-number">03</div>
+<h3>JavaScript</h3>
+<p>Adding functionality and interaction.</p>
+</div>
+
+<div class="skill">
+<div class="skill-number">04</div>
+<h3>Blogging</h3>
+<p>Creating and managing online content.</p>
+</div>
+
+<div class="skill">
+<div class="skill-number">05</div>
+<h3>Digital Projects</h3>
+<p>Developing useful online resources.</p>
+</div>
+
+<div class="skill">
+<div class="skill-number">06</div>
+<h3>Learning</h3>
+<p>Always exploring new tools and technologies.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+<div class="container">
+
+<div class="section-title">
+<small>03 — Portfolio</small>
+<h2>Featured Projects</h2>
+</div>
+
+<div class="projects">
+
+<div class="project">
+<div class="project-tag">Project 01</div>
+<h3>Personal Website</h3>
+<p>
+A modern responsive personal portfolio website
+built to showcase my work and skills.
+</p>
+<a href="#" class="project-link">
+View Project →
+</a>
+</div>
+
+<div class="project">
+<div class="project-tag">Project 02</div>
+<h3>Digital Project</h3>
+<p>
+A digital project focused on creating useful
+online resources and experiences.
+</p>
+<a href="#" class="project-link">
+View Project →
+</a>
+</div>
+
+<div class="project">
+<div class="project-tag">Project 03</div>
+<h3>Web Experiment</h3>
+<p>
+An ongoing web project where I experiment with
+new ideas, designs and technologies.
+</p>
+<a href="#" class="project-link">
+View Project →
+</a>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+<div class="container">
+
+<div class="contact-box">
+
+<h2>Let's Work Together.</h2>
+
+<p>
+Have an idea or project? Feel free to get in touch.
+</p>
+
+<a href="mailto:your-email@example.com"
+class="btn btn-primary">
+Contact Me
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+© 2026 Venkateshwaran. All Rights Reserved.
+</div>
+</footer>
 
 </body>
 </html>
